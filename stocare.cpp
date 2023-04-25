@@ -13,7 +13,6 @@
 vector <shared_ptr<vehicul>> stocare::masini;// = new vector<shared_ptr<vehicul>>;
 
 void stocare::add_masina( shared_ptr<vehicul> aux){
-    cout<<"@";
     masini.push_back(aux);
 }
 

@@ -8,7 +8,7 @@
 using namespace std;
 
 int vehicul::nr_masini_rulate(){
-	return masini_rulate;
+    return masini_rulate;
 }
 void vehicul::nr_masini_reset(){
     masini_rulate = 0;
@@ -89,7 +89,7 @@ vehicul& vehicul::operator =(const vehicul &aux){
     return *this;
 }
 std::ostream& operator<<(ostream& os, vehicul &a){
-    os << a.get_vin() << "\n" << a.get_marca() << "\n" << a.get_consum() << "\n" << a.get_data() << "\n" << a.get_greutate() << "\n";
+    os << "Vin: " << a.get_vin() << "\n" << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
 }
 
@@ -103,8 +103,8 @@ void ev::add_masini_ev(){
     masini_ev_rulate++;
 }
 ev::ev(const string &d_fab, const string &n_vin,const int & n_consum, const string &n_marca, const int &ngreutate, const int &nbat,
-   const int &nrange) : vehicul(d_fab, n_vin,
-                                n_consum, n_marca, ngreutate){
+       const int &nrange) : vehicul(d_fab, n_vin,
+                                    n_consum, n_marca, ngreutate){
     set_bat(nbat);
     set_range(nrange);
     add_masini_ev();
@@ -147,7 +147,7 @@ ev& ev::operator =(const ev &aux){
     return *this;
 }
 std::ostream& operator<<(ostream& os, ev& a){
-    os << a.get_range() << "\n" << a.get_bat() << "\n" << a.get_vin() << "\n" << a.get_marca() << "\n" << a.get_consum() << "\n" << a.get_data() << "\n" << a.get_greutate() << "\n";
+    os << "Range: " << a.get_range() << "\n" << "Baterie: " << a.get_bat() << "\n" << "Vin: " << a.get_vin() << "\n" << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
 }
 int ev::calc_impozit() const {
@@ -169,7 +169,7 @@ void termic::masini_termic_add(){
     masini_termic_rulate++;
 }
 termic::termic(const string &d_fab, const string &n_vin,const int & n_consum, const string &n_marca, const int &ngreutate, const int &nrezervor,
-       const double &nmotor, const int &nputere) : vehicul(d_fab, n_vin, n_consum, n_marca, ngreutate){
+               const double &nmotor, const int &nputere) : vehicul(d_fab, n_vin, n_consum, n_marca, ngreutate){
     set_rezervor(nrezervor);
     set_motor(nmotor);
     set_putere(nputere);
@@ -222,8 +222,8 @@ termic& termic::operator =(const termic &aux){
     return *this;
 }
 std::ostream& operator<<(ostream& os, termic& a){
-    os << a.get_rezervor() << "\n" << a.get_motor() << "\n" << a.get_putere() << "\n" << a.get_vin() << "\n"
-       << a.get_marca() << "\n" << a.get_consum() << "\n" << a.get_data() << "\n" << a.get_greutate() << "\n";
+    os << "Rezervor: " << a.get_rezervor() << "\n" << "Motor: " << a.get_motor() << "\n" << "Putere: " << a.get_putere() << "\n" << "Vin: " << a.get_vin() << "\n"
+       << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
 }
 int termic::calc_impozit() const{
@@ -247,7 +247,7 @@ void hibrid::nr_masini_hibrid_add(){
     masini_hibrid_rulate++;
 }
 hibrid::hibrid (const string &d_fab, const string &n_vin,const int & n_consum, const string &n_marca, const int &ngreutate, const int &nrezervor,
-        const double &nmotor, const int &nputere, const int &nbat, const int &nrange) : vehicul(d_fab, n_vin, n_consum, n_marca, ngreutate){
+                const double &nmotor, const int &nputere, const int &nbat, const int &nrange) : vehicul(d_fab, n_vin, n_consum, n_marca, ngreutate){
     set_rezervor(nrezervor);
     set_motor(nmotor);
     set_putere(nputere);
@@ -323,8 +323,8 @@ hibrid& hibrid::operator =(const hibrid &aux){
     return *this;
 }
 std::ostream& operator<<(ostream& os, hibrid& a){
-    os << a.get_range() << "\n" << a.get_bat() << "\n" << a.get_rezervor() << "\n" << a.get_motor() << "\n" << a.get_putere() << "\n" << a.get_vin() << "\n"
-       << a.get_marca() << "\n" << a.get_consum() << "\n" << a.get_data() << "\n" << a.get_greutate() << "\n";
+    os << "Range: " << a.get_range() << "\n" << "Baterie: " << a.get_bat() << "\n" << "Rezervor: " << a.get_rezervor() << "\n" << "Motor: " << a.get_motor() << "\n" << "Putere: " << a.get_putere() << "\n" << "Vin: " << a.get_vin() << "\n"
+       << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
 }
 int hibrid::calc_impozit() const{

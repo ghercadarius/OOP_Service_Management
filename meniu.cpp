@@ -18,11 +18,11 @@ int hibrid::masini_hibrid_rulate = 0;
 int termic::masini_termic_rulate = 0;
 
 void meniu::mcon(){
-    int x = -1;
+    string x;
     do{
-        cout << "Type 1 to continue\n";
+        cout << "Type anything to continue\n";
         cin >> x;
-    }while(x != -1);
+    }while(false);
 }
 
 int meniu::get_input(){
@@ -79,7 +79,6 @@ void meniu::main_menu(){
 void meniu::add_car(){
     set_input(-1);
     shared_ptr<vehicul> nev;
-    cout<<"@";
     do{
         dcl();
         cout << "Project made by Gherca Darius\n\n1) Electric Vehicle\n2) Gas Vehicle\n3) Hybrid vehicle\nEnter your option by typing the desired number\n";
@@ -111,7 +110,6 @@ void meniu::add_car(){
                 cin >> nrang;
                 nev = make_shared<ev>(dfab, nvin, ncon, nmarca, ngreutate, nbat, nrang);
                 stocare::add_masina(nev);
-                delete &nev;
                 break;
             case 2:
                 cout << "Tank capacity\n";
@@ -143,7 +141,6 @@ void meniu::add_car(){
         if(x == 1)
             x = -1;
         set_input(x);
-
     }while(get_input() == -1);
 }
 
@@ -164,7 +161,10 @@ void meniu::delete_car(int index){
 
 void meniu::see_cars(){
     for(auto i: *stocare::vec_masini())
-        cout << i << "\n";
+        cout << typeid(*i).name() << "\n";
+    for(auto i : *stocare::vec_masini()){
+        cout << (*i) << "\n";
+    }
     mcon();
 }
 
