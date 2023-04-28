@@ -73,6 +73,7 @@ void meniu::main_menu(){
                 break;
             case 7:
                 counter_reset();
+                break;
             case 8:
                 set_input(8);
                 break;

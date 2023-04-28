@@ -36,7 +36,7 @@ public:
     string get_marca() const;
     void set_marca(const string &nmarca);
     vehicul& operator =(const vehicul &aux);
-    friend std::ostream& operator<<(ostream& os, vehicul &a);
+    friend std::ostream& operator<<(ostream& os,const vehicul &a);
     virtual int calc_impozit() const = 0;
     virtual double calc_nota() const = 0;
 };
@@ -60,7 +60,7 @@ public:
     void set_range(const int nrange);
     int get_range() const;
     ev& operator =(const ev &aux);
-    friend std::ostream& operator<<(ostream& os, ev& a);
+    friend std::ostream& operator<<(ostream& os,const ev& a);
     int calc_impozit() const override;
     double calc_nota() const override;
 };
@@ -89,7 +89,7 @@ public:
     void set_putere(const int nputere);
     int get_putere() const;
     termic& operator =(const termic &aux);
-    friend std::ostream& operator<<(ostream& os, termic& a);
+    friend std::ostream& operator<<(ostream& os,const termic& a);
     int calc_impozit() const override;
     double calc_nota() const override;
 };
@@ -124,7 +124,7 @@ public:
     void set_range(const int nrange);
     int get_range() const;
     hibrid& operator =(const hibrid &aux);
-    friend std::ostream& operator<<(ostream& os, hibrid& a);
+    friend std::ostream& operator<<(ostream& os,const hibrid& a);
     int calc_impozit() const override;
     double calc_nota() const override;
 };

@@ -92,7 +92,7 @@ vehicul& vehicul::operator =(const vehicul &aux){
     this -> set_greutate(aux.get_greutate());
     return *this;
 }
-std::ostream& operator<<(ostream& os, const vehicul &a){
+ostream& operator<<(ostream& os, const vehicul &a){
     os << "Vin: " << a.get_vin() << "\n" << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
 }
