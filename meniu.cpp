@@ -179,12 +179,15 @@ void meniu::see_cars(int index){
 }
 
 void meniu::calculations(int index){
-    shared_ptr<vehicul> aux = stocare::arata_id_masina(index);
     try{
+        shared_ptr<vehicul> aux = stocare::arata_id_masina(index);
         cout << "Tax: " << aux -> calc_impozit() << "\n";
         cout << "Rating: " << aux -> calc_nota() << "\n";
     }
-    catch(const Exception2 &e){
+    catch(const Exception1 &e){
+        cout << e.what() << "\n";
+    }
+    catch(const Exception2 &e) {
         cout << e.what() << "\n";
     }
     mcon();

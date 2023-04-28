@@ -26,7 +26,8 @@ void stocare::del_ul_masina(){
 
 bool stocare::del_id_masina(int index){
     ///EXCEPTIE daca index > masini.size()
-    if(index > masini.size())
+    cout << masini.size();
+    if(index >= masini.size())
         throw Exception1();
     masini.erase(masini.begin() + index);
 
