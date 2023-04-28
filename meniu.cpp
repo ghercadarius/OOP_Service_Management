@@ -160,9 +160,9 @@ void meniu::delete_car(int index){
 }
 
 void meniu::see_cars(){
-    for(auto i: *stocare::vec_masini()) {
+    /*for(auto i: *stocare::vec_masini()) {
         cout << typeid(*i).name() << "\n";
-    }
+    }*/
     for(auto i : *stocare::vec_masini()){
         cout << (*i) << "\n";
     }

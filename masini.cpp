@@ -41,14 +41,18 @@ vehicul::vehicul(const vehicul &a){
     nr_masini_add();
 }
 vehicul::~vehicul(){
-    aux_del();
-}
-void vehicul::aux_del(){
-    delete &data_fab;
+    /*delete &data_fab;
     delete &vin;
     delete &marca;
     delete &consum;
-    delete &greutate;
+    delete &greutate;*/
+}
+void vehicul::aux_del(){
+    /*delete &data_fab;
+    delete &vin;
+    delete &marca;
+    delete &consum;
+    delete &greutate;*/
 }
 int vehicul::get_greutate() const{
     return greutate;
@@ -120,9 +124,13 @@ ev::ev(const ev &a) : vehicul(a.get_data(), a.get_vin(), a.get_consum(), a.get_m
     add_masini_ev();
 }
 ev::~ev(){
-    aux_del();
+    /*delete &data_fab;
+    delete &vin;
+    delete &marca;
+    delete &consum;
+    delete &greutate;
     delete &cap_bat;
-    delete &range;
+    delete &range;*/
 }
 void ev::set_bat(const int nbat){
     cap_bat = nbat;
@@ -187,10 +195,10 @@ termic::termic (const termic &aux) : vehicul(aux.get_data(), aux.get_vin(), aux.
     putere = aux.get_putere();
 }
 termic::~termic(){
-    aux_del();
+    /*aux_del();
     delete &rezervor;
     delete &motor;
-    delete &putere;
+    delete &putere;*/
 }
 void termic::set_rezervor(const int nrezervor){
     rezervor = nrezervor;
@@ -272,12 +280,12 @@ hibrid::hibrid (const hibrid &aux) : vehicul(aux.get_data(), aux.get_vin(), aux.
     nr_masini_hibrid_add();
 }
 hibrid::~hibrid(){
-    aux_del();
+    /*aux_del();
     delete &rezervor;
     delete &motor;
     delete &putere;
     delete &cap_bat;
-    delete &range;
+    delete &range;*/
 }
 void hibrid::set_rezervor(const int nrezervor){
     rezervor = nrezervor;
