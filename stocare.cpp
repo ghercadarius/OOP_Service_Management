@@ -24,18 +24,17 @@ void stocare::del_ul_masina(){
     masini.pop_back();
 }
 
-bool stocare::del_id_masina(int index){
+void stocare::del_id_masina(int index){
     ///EXCEPTIE daca index > masini.size()
     cout << masini.size();
-    if(index >= masini.size())
+    if(index >= int(masini.size()))
         throw Exception1();
     masini.erase(masini.begin() + index);
-
 }
 
 shared_ptr<vehicul> stocare::arata_id_masina(int index){
     ///EXCEPTIE DACA INDEX > masini.size()
-    if(index > masini.size())
+    if(index >= int(masini.size()))
         throw Exception1();
     return masini[index];
 }

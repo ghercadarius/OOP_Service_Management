@@ -19,7 +19,7 @@ public:
     static void add_masina(shared_ptr<vehicul> aux);
     static vector <shared_ptr<vehicul>>* vec_masini();
     static void del_ul_masina();
-    static bool del_id_masina(int index);
+    static void del_id_masina(int index);
     static shared_ptr<vehicul> arata_id_masina(int index);
 };
 
