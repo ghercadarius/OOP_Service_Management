@@ -24,7 +24,7 @@ public:
     vehicul();
     vehicul(const vehicul &a);
     virtual ~vehicul();
-    void aux_del();
+    //void aux_del();
     int get_greutate() const;
     void set_greutate(const int ngreutate);
     string get_vin() const;

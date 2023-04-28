@@ -47,13 +47,13 @@ vehicul::~vehicul(){
     delete &consum;
     delete &greutate;*/
 }
-void vehicul::aux_del(){
+//void vehicul::aux_del(){
     /*delete &data_fab;
     delete &vin;
     delete &marca;
     delete &consum;
     delete &greutate;*/
-}
+//}
 int vehicul::get_greutate() const{
     return greutate;
 }
