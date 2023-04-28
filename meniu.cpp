@@ -18,6 +18,7 @@ int hibrid::masini_hibrid_rulate = 0;
 int termic::masini_termic_rulate = 0;
 
 void meniu::mcon(){
+    cout << "\n";
     string x;
     do{
         cout << "Type anything to continue\n";
@@ -41,7 +42,7 @@ void meniu::main_menu(){
     do{
         dcl();
         cout << "Project made by Gherca Darius\n\n1) Add a car\n2) See all cars\n3) Delete last car\n4) Delete a car by its index\n5) Show a car by its index\n"
-                "6) Measure rating or tax of car by index\nEnter your option by typing the desired number\n";
+                "6) Measure rating or tax of car by index\n7) Counter Reset\n8) Exit\nEnter your option by typing the desired number\n";
         int x;
         cin>>x;
         set_input(x);
@@ -70,10 +71,28 @@ void meniu::main_menu(){
                 cin >> x;
                 calculations(x);
                 break;
+            case 7:
+                counter_reset();
+            case 8:
+                set_input(8);
+                break;
         }
         cout<<"!";
+        if(get_input() != 8)
         set_input(-1);
     }while(get_input() == -1);
+}
+
+void meniu::counter_reset(){
+    cout << vehicul::nr_masini_rulate() << "\n";
+    vehicul::nr_masini_reset();
+    cout << ev::nr_masini_ev_rulate() << "\n";
+    ev::nr_masini_ev_reset();
+    cout << termic::nr_masini_termic() << "\n";
+    termic::nr_masini_termic_reset();
+    cout << hibrid::nr_masini_hibrid() << "\n";
+    hibrid::reset_nr_masini_hibrid();
+    mcon();
 }
 
 void meniu::add_car(){

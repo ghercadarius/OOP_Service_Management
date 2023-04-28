@@ -29,6 +29,7 @@ public:
     static void delete_car(int index);
     static void see_cars(int index);
     static void mcon();
+    static void counter_reset();
 };
 
 

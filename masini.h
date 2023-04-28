@@ -28,13 +28,13 @@ public:
     int get_greutate() const;
     void set_greutate(const int ngreutate);
     string get_vin() const;
-    void set_vin(const string nvin);
+    void set_vin(const string &nvin);
     string get_data() const;
-    void set_data(const string ndata);
+    void set_data(const string &ndata);
     int get_consum() const;
     void set_consum(const int nconsum);
     string get_marca() const;
-    void set_marca(const string nmarca);
+    void set_marca(const string &nmarca);
     vehicul& operator =(const vehicul &aux);
     friend std::ostream& operator<<(ostream& os, vehicul &a);
     virtual int calc_impozit() const = 0;

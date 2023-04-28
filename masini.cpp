@@ -63,13 +63,13 @@ void vehicul::set_greutate(const int ngreutate){
 string vehicul::get_vin() const{
     return vin;
 }
-void vehicul::set_vin(const string nvin){
+void vehicul::set_vin(const string &nvin){
     vin = nvin;
 }
 string vehicul::get_data() const{
     return data_fab;
 }
-void vehicul::set_data(const string ndata){
+void vehicul::set_data(const string &ndata){
     data_fab = ndata;
 }
 int vehicul::get_consum() const{
@@ -81,7 +81,7 @@ void vehicul::set_consum(const int nconsum){
 string vehicul::get_marca() const{
     return marca;
 }
-void vehicul::set_marca(const string nmarca){
+void vehicul::set_marca(const string &nmarca){
     marca = nmarca;
 }
 vehicul& vehicul::operator =(const vehicul &aux){
@@ -92,7 +92,7 @@ vehicul& vehicul::operator =(const vehicul &aux){
     this -> set_greutate(aux.get_greutate());
     return *this;
 }
-std::ostream& operator<<(ostream& os, vehicul &a){
+std::ostream& operator<<(ostream& os, const vehicul &a){
     os << "Vin: " << a.get_vin() << "\n" << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
 }
@@ -154,7 +154,7 @@ ev& ev::operator =(const ev &aux){
     this -> set_marca(aux.get_marca());
     return *this;
 }
-std::ostream& operator<<(ostream& os, ev& a){
+std::ostream& operator<<(ostream& os,const ev& a){
     os << "Range: " << a.get_range() << "\n" << "Baterie: " << a.get_bat() << "\n" << "Vin: " << a.get_vin() << "\n" << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
 }
@@ -229,7 +229,7 @@ termic& termic::operator =(const termic &aux){
     this -> set_putere(aux.get_putere());
     return *this;
 }
-std::ostream& operator<<(ostream& os, termic& a){
+std::ostream& operator<<(ostream& os,const termic& a){
     os << "Rezervor: " << a.get_rezervor() << "\n" << "Motor: " << a.get_motor() << "\n" << "Putere: " << a.get_putere() << "\n" << "Vin: " << a.get_vin() << "\n"
        << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
@@ -330,7 +330,7 @@ hibrid& hibrid::operator =(const hibrid &aux){
     this -> set_bat(aux.get_bat());
     return *this;
 }
-std::ostream& operator<<(ostream& os, hibrid& a){
+std::ostream& operator<<(ostream& os,const hibrid& a){
     os << "Range: " << a.get_range() << "\n" << "Baterie: " << a.get_bat() << "\n" << "Rezervor: " << a.get_rezervor() << "\n" << "Motor: " << a.get_motor() << "\n" << "Putere: " << a.get_putere() << "\n" << "Vin: " << a.get_vin() << "\n"
        << "Marca: " << a.get_marca() << "\n" << "Consum: " << a.get_consum() << "\n" << "Data Fabricatie: " << a.get_data() << "\n" << "Greutate: " << a.get_greutate() << "\n";
     return os;
