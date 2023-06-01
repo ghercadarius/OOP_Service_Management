@@ -4,10 +4,10 @@
 #include "masini.h"
 #include "stocare.h"
 #include "exceptions.h"
+#include "mvec.h"
 using namespace std;
 
 int main() {
-    meniu a;
-    cout << "Hello world";
+    meniu::main_menu();
     return 0;
 }

@@ -8,12 +8,14 @@
 #include "masini.h"
 #include "stocare.h"
 #include "exceptions.h"
+#include "mvec.h"
 #include <iostream>
 #include <cstdlib>
 class meniu{
     //static int input;
 private:
     static int input;
+    static mvect<vehicul*> stoc;
 public:
     static int get_input();
     static void set_input(const int a);

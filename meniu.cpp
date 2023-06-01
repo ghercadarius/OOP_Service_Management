@@ -7,6 +7,7 @@
 #include "masini.h"
 #include "stocare.h"
 #include "exceptions.h"
+#include "mvec.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -98,7 +99,7 @@ void meniu::counter_reset(){
 
 void meniu::add_car(){
     set_input(-1);
-    shared_ptr<vehicul> nev;
+    vehicul *nev;
     do{
         dcl();
         cout << "Project made by Gherca Darius\n\n1) Electric Vehicle\n2) Gas Vehicle\n3) Hybrid vehicle\nEnter your option by typing the desired number\n";
@@ -128,8 +129,8 @@ void meniu::add_car(){
                 cin >> nbat;
                 cout << "Range\n";
                 cin >> nrang;
-                nev = make_shared<ev>(dfab, nvin, ncon, nmarca, ngreutate, nbat, nrang);
-                stocare::add_masina(nev);
+                nev = new ev(dfab, nvin, ncon, nmarca, ngreutate, nbat, nrang);
+                stoc.push(nev);
                 break;
             case 2:
                 cout << "Tank capacity\n";
@@ -138,8 +139,8 @@ void meniu::add_car(){
                 cin >> neng;
                 cout << "Horsepower\n";
                 cin >> nbhp;
-                nev = make_shared<termic>(dfab, nvin, ncon, nmarca, ngreutate, ncap, neng, nbhp);
-                stocare::add_masina(nev);
+                nev = new termic(dfab, nvin, ncon, nmarca, ngreutate, ncap, neng, nbhp);
+                stoc.push(nev);
                 break;
             case 3:
                 cout << "Tank capacity\n";
@@ -152,8 +153,8 @@ void meniu::add_car(){
                 cin >> nbat;
                 cout << "Range\n";
                 cin >> nrang;
-                nev = make_shared<hibrid>(dfab, nvin, ncon, nmarca, ngreutate, ncap, neng, nbhp, nbat, nrang);
-                stocare::add_masina(nev);
+                nev = new hibrid(dfab, nvin, ncon, nmarca, ngreutate, ncap, neng, nbhp, nbat, nrang);
+                stoc.push(nev);
                 break;
         }
         cout << "If you wish to add another, type 1\nElse type 2\n";
@@ -165,13 +166,13 @@ void meniu::add_car(){
 }
 
 void meniu::delete_car(){
-    stocare::del_ul_masina();
+    stoc.pop();
     mcon();
 }
 
 void meniu::delete_car(int index){
     try{
-        stocare::del_id_masina(index);
+        stoc.del_el(index);
     }
     catch (const Exception1 &e){
         cout << e.what() << "\n";
@@ -183,15 +184,13 @@ void meniu::see_cars(){
     /*for(auto i: *stocare::vec_masini()) {
         cout << typeid(*i).name() << "\n";
     }*/
-    for(auto i : *stocare::vec_masini()){
-        cout << (*i) << "\n";
-    }
+    cout << stoc;
     mcon();
 }
 
 void meniu::see_cars(int index){
     try {
-        cout << *stocare::arata_id_masina(index);
+        cout << stoc.read_el(index);
     }
     catch (const Exception1 &e){
         cout << e.what() << "\n";
@@ -201,7 +200,7 @@ void meniu::see_cars(int index){
 
 void meniu::calculations(int index){
     try{
-        shared_ptr<vehicul> aux = stocare::arata_id_masina(index);
+        vehicul *aux = stoc.read_el(index);
         cout << "Tax: " << aux -> calc_impozit() << "\n";
         cout << "Rating: " << aux -> calc_nota() << "\n";
     }
